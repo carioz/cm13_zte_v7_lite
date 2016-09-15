@@ -1,7 +1,10 @@
 LOCAL_PATH := $(call my-dir)
 
-ifeq ($(TARGET_DEVICE),ZTE_BLADE_V0720)
-
-include $(call all-makefiles-under,$(LOCAL_PATH))
-
-endif
+include $(CLEAR_VARS)
+LOCAL_MODULE                  := asec_helper
+LOCAL_MODULE_TAGS             := optional
+LOCAL_SRC_FILES               := asec_helper.c
+LOCAL_SHARED_LIBRARIES        := \
+	libcutils \
+	liblog
+include $(BUILD_EXECUTABLE)
